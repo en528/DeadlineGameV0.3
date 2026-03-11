@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+  <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      background-color: #2b3954; /* 這裡可以換成你喜歡的底色 */
+      /* 啟動終極置中魔法 */
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      overflow: hidden;
+      touch-action: none;
+    }
+    #unity-container {
+      width: 100%; height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #unity-canvas {
+      /* 核心魔法：最大只能跟螢幕一樣大，且打死保持 16:9 比例！ */
+      max-width: 100% !important;
+      max-height: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      width: auto !important;
+      height: auto !important;
+      /* 殺死 Unity 預設會把畫面推到右下角的錯誤屬性 */
+      position: static !important;
+      transform: none !important;
+      margin: 0 !important;
+    }
+  </style>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | DeadlineGame</title>
