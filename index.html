@@ -5,11 +5,10 @@
   <style>
     body, html {
       margin: 0; padding: 0;
-      width: 100%; height: 100%;
-      background-color: #2b3954; /* 這裡可以換成你喜歡的底色 */
-      /* 啟動終極置中魔法 */
-      display: flex; 
-      justify-content: center; 
+      width: 100vw; height: 100vh;
+      background-color: #2b3954; /* 你的深藍底色 */
+      display: flex;
+      justify-content: center;
       align-items: center;
       overflow: hidden;
       touch-action: none;
@@ -21,16 +20,20 @@
       align-items: center;
     }
     #unity-canvas {
-      /* 核心魔法：最大只能跟螢幕一樣大，且打死保持 16:9 比例！ */
-      max-width: 100% !important;
-      max-height: 100% !important;
-      aspect-ratio: 16 / 9 !important;
-      width: auto !important;
-      height: auto !important;
-      /* 殺死 Unity 預設會把畫面推到右下角的錯誤屬性 */
+      /* ★ 核心魔法：讓畫面盡可能長大，但絕對不超過 16:9 的完美比例！ */
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: calc(100vh * (16 / 9)) !important;
+      max-height: calc(100vw * (9 / 16)) !important;
+    
+      margin: auto !important;
       position: static !important;
       transform: none !important;
-      margin: 0 !important;
+    }
+  
+    /* 🔪 殺掉右邊那個礙眼的 Unity 預設底條 (Logo 和全螢幕按鈕) */
+    #unity-footer {
+      display: none !important;
     }
   </style>
     <meta charset="utf-8">
